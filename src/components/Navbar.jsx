@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import classes from "../styles/Navbar.module.css";
 
 const Navbar = () => {
@@ -18,12 +19,15 @@ const Navbar = () => {
           <li className={classes.listItem}>Homepage</li>
           <li className={classes.listItem}>Products</li>
           <li className={classes.listItem}>Menu</li>
-          <Image
-            src="/img/pizzalian-logo.svg"
-            alt="logo"
-            width="220px"
-            height="80px"
-          />
+          <Link href="/" passHref>
+            <Image
+              src="/img/pizzalian-logo.svg"
+              alt="logo"
+              width="220px"
+              height="80px"
+              className={classes.listItem}
+            />
+          </Link>
           <li className={classes.listItem}>Events</li>
           <li className={classes.listItem}>Blog</li>
           <li className={classes.listItem}>Contact</li>

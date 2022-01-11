@@ -61,6 +61,10 @@
   font-weight: 500;
 }
 
+.logo {
+  cursor: pointer;
+}
+
 .cart {
   position: relative;
 }

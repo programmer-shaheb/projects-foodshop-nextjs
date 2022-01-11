@@ -16,7 +16,13 @@ const Product = () => {
     <div className={classes.container}>
       <div className={classes.left}>
         <div className={classes.imgContainer}>
-          <Image src={pizza.img} objectFit="contain" layout="fill" alt="" />
+          <Image
+            src={pizza.img}
+            priority
+            objectFit="contain"
+            layout="fill"
+            alt=""
+          />
         </div>
       </div>
       <div className={classes.right}>
