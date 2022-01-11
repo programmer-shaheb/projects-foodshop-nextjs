@@ -23,27 +23,8 @@
   align-items: center;
 }
 
-.swiperslide:first-child {
-  text-align: center;
-  font-size: 18px;
-  background-image: url("/img/home-slider-1.jpg");
-  background-position: center center;
-  background-size: cover;
-}
-.swiperslide:nth-child(2) {
-  text-align: center;
-  font-size: 18px;
-  background-image: url("/img/home-slider-2.jpg");
-  background-position: center center;
-  background-size: cover;
-}
-.swiperslide:last-child {
-  text-align: center;
-  font-size: 18px;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url("/img/home-slider-3.jpg");
-  background-position: center center;
-  background-size: cover;
+.landingImage {
+  z-index: 0;
 }
 
 .text {
@@ -52,6 +33,7 @@
   font-weight: 500;
   color: rgb(255, 255, 255);
   white-space: wrap;
+  text-align: center;
 }
 
 @media screen and (max-width: 480px) {
