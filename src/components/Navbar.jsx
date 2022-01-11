@@ -18,8 +18,12 @@ const Navbar = () => {
           <li className={classes.listItem}>Homepage</li>
           <li className={classes.listItem}>Products</li>
           <li className={classes.listItem}>Menu</li>
-          {/* <Image src="/img/logo.png" alt="" width="160px" height="69px" /> */}
-          <h1 style={{ fontSize: "50px" }}>Pizza Please!</h1>
+          <Image
+            src="/img/pizzalian-logo.svg"
+            alt="logo"
+            width="220px"
+            height="80px"
+          />
           <li className={classes.listItem}>Events</li>
           <li className={classes.listItem}>Blog</li>
           <li className={classes.listItem}>Contact</li>
