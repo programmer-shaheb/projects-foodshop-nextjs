@@ -1,8 +1,33 @@
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import classes from "../styles/Navbar.module.css";
+import CartIcon from "./CartIcon";
 
 const Navbar = () => {
+  const [isCartHighlighted, setIsCartHighlighted] = useState(false);
+  const quantity = useSelector((state) => state.cart.quantity);
+
+  const cartClasses = `${classes.cart} ${
+    isCartHighlighted ? classes.bump : ""
+  }`;
+
+  useEffect(() => {
+    if (quantity === 0) {
+      return;
+    }
+    setIsCartHighlighted(true);
+
+    const timer = setTimeout(() => {
+      setIsCartHighlighted(false);
+    }, 300);
+
+    return () => {
+      clearTimeout(timer);
+    };
+  }, [quantity]);
+
   return (
     <div className={classes.container}>
       <div className={classes.item}>
@@ -34,9 +59,13 @@ const Navbar = () => {
         </ul>
       </div>
       <div className={classes.item}>
-        <div className={classes.cart}>
-          <Image src="/img/cart.png" alt="" width="30px" height="30px" />
-          <div className={classes.counter}>2</div>
+        <div className={cartClasses}>
+          <Link href="/cart" passHref>
+            <span className={classes.icon}>
+              <CartIcon />
+            </span>
+          </Link>
+          <div className={classes.counter}>{quantity}</div>
         </div>
       </div>
     </div>
