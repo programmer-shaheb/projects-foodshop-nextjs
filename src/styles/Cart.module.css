@@ -72,10 +72,15 @@
   color: #fff;
   font-size: 18px;
   cursor: pointer;
+  transition: 0.3s ease-in;
 }
 
 .button:disabled {
   cursor: not-allowed;
+}
+
+.button:hover {
+  background-color: #9c0e1a;
 }
 
 @media screen and (max-width: 480px) {
@@ -147,8 +152,14 @@
   padding: 10px 5px;
   cursor: pointer;
   margin-bottom: 5px;
-  background-color: white;
-  color: tomato;
+  background-color: #c6202e;
+  color: #fff;
   font-weight: 600;
   font-size: 15px;
+  border: none;
+  white-space: nowrap;
+}
+
+.payButton:hover {
+  background-color: #ad0f1c;
 }

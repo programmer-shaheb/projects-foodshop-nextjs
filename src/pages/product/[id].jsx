@@ -1,9 +1,11 @@
-import classes from "../../styles/Product.module.css";
 import Image from "next/image";
 import { useState } from "react";
 import axios from "axios";
 import { useDispatch } from "react-redux";
 import { addProduct } from "../../redux/cartSlice";
+import classes from "../../styles/Product.module.css";
+import { notify } from "../../util/notify";
+
 const Product = ({ pizza }) => {
   const [price, setPrice] = useState(pizza.prices[0]);
   const [size, setSize] = useState(0);
@@ -41,8 +43,8 @@ const Product = ({ pizza }) => {
       price,
     };
 
+    notify(`${quantity} Pizza Added 🍕😋`, "success");
     dispatch(addProduct(item));
-    console.log(item);
   };
 
   return (

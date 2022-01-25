@@ -41,21 +41,23 @@ const Navbar = () => {
       </div>
       <div className={classes.item}>
         <ul className={classes.list}>
-          <li className={classes.listItem}>Homepage</li>
+          <Link href="/" passHref>
+            <li className={classes.listItem}>Homepage</li>
+          </Link>
           <li className={classes.listItem}>Products</li>
           <li className={classes.listItem}>Menu</li>
-          <Link href="/" passHref>
-            <Image
-              src="/img/pizzalian-logo.svg"
-              alt="logo"
-              width="220px"
-              height="80px"
-              className={classes.listItem}
-            />
-          </Link>
+          <Image
+            src="/img/pizzalian-logo.svg"
+            alt="logo"
+            width="220px"
+            height="80px"
+            className={classes.listItem}
+          />
           <li className={classes.listItem}>Events</li>
           <li className={classes.listItem}>Blog</li>
-          <li className={classes.listItem}>Contact</li>
+          <Link href="/admin" passHref>
+            <li className={classes.listItem}>Admin</li>
+          </Link>
         </ul>
       </div>
       <div className={classes.item}>

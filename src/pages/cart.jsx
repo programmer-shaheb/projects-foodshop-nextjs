@@ -1,8 +1,6 @@
 import { useEffect, useState } from "react";
-import styles from "../styles/Cart.module.css";
-import Image from "next/image";
-import { useSelector } from "react-redux";
 import { useRouter } from "next/router";
+import Image from "next/image";
 import {
   PayPalScriptProvider,
   PayPalButtons,
@@ -11,7 +9,11 @@ import {
 import axios from "axios";
 import { useDispatch } from "react-redux";
 import { reset } from "../redux/cartSlice";
+import { useSelector } from "react-redux";
+import styles from "../styles/Cart.module.css";
 import OrderDetail from "../components/OrderDetail";
+import EmptyCart from "../components/EmptyCart";
+import { notify } from "../util/notify";
 
 const Cart = () => {
   const [open, setOpen] = useState(false);
@@ -29,11 +31,21 @@ const Cart = () => {
       const result = await axios.post("http://localhost:3000/api/orders", data);
 
       if (result.status === 201) {
+        notify("Order Done ✔️", "success");
         dispatch(reset());
         router.replace(`/orders/${result.data._id}`);
       }
     } catch (error) {
-      console.log(error);
+      notify("Order Cancel ❌", "error");
+    }
+  };
+
+  const handleModal = (value) => {
+    if (value === "open") {
+      setCash(true);
+    }
+    if (value === "close") {
+      setCash(false);
     }
   };
 
@@ -103,7 +115,7 @@ const Cart = () => {
               <th>Quantity</th>
               <th>Total</th>
             </tr>
-            {!product && <h3>No Item...</h3>}
+            {!product && <EmptyCart />}
             {cart?.products.map((product) => (
               <tr className={styles.tr} key={product._id}>
                 <td>
@@ -162,7 +174,7 @@ const Cart = () => {
             <div className={styles.paymentMethods}>
               <button
                 className={styles.payButton}
-                onClick={() => setCash(true)}
+                onClick={() => handleModal("open")}
               >
                 Cash On Delivery
               </button>
@@ -189,7 +201,13 @@ const Cart = () => {
           )}
         </div>
       </div>
-      {cash && <OrderDetail total={cart.total} createOrder={createOrder} />}
+      {cash && (
+        <OrderDetail
+          closeModal={handleModal}
+          total={cart.total}
+          createOrder={createOrder}
+        />
+      )}
     </div>
   );
 };

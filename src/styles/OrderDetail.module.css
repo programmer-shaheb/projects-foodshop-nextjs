@@ -8,7 +8,7 @@
   z-index: 999;
   align-items: center;
   justify-content: center;
-  background-color: rgba(197, 197, 197, 0.568);
+  background-color: rgba(231, 170, 170, 0.568);
 }
 
 .wrapper {
@@ -39,15 +39,34 @@
 
 .input {
   height: 40px;
+  outline: none;
 }
 
 .button {
+  display: flex;
+}
+
+.orderButton,
+.closeButton {
   border: none;
-  background-color: teal;
+  background-color: #c6202e;
   color: white;
   padding: 10px 20px;
   font-weight: 500;
   font-size: 16px;
   border-radius: 10px;
   cursor: pointer;
+  margin: 0 10px;
+}
+
+.orderButton {
+  background-color: rgb(74, 195, 231);
+}
+
+.closeButton:hover {
+  background-color: #af0f1d;
+}
+
+.orderButton:hover {
+  background-color: rgb(48, 181, 221);
 }

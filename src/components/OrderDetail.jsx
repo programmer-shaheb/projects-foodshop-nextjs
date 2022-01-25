@@ -1,7 +1,7 @@
 import { useState } from "react";
 import styles from "../styles/OrderDetail.module.css";
 
-const OrderDetail = ({ total, createOrder }) => {
+const OrderDetail = ({ total, createOrder, closeModal }) => {
   const [customer, setCustomer] = useState("");
   const [address, setAddress] = useState("");
 
@@ -40,9 +40,17 @@ const OrderDetail = ({ total, createOrder }) => {
             onChange={(e) => setAddress(e.target.value)}
           />
         </div>
-        <button className={styles.button} onClick={handleClick}>
-          Order
-        </button>
+        <div className={styles.button}>
+          <button className={styles.orderButton} onClick={handleClick}>
+            Order
+          </button>
+          <button
+            className={styles.closeButton}
+            onClick={() => closeModal("close")}
+          >
+            Close
+          </button>
+        </div>
       </div>
     </div>
   );
