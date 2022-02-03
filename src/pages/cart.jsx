@@ -29,7 +29,7 @@ const Cart = () => {
   const createOrder = async (data) => {
     try {
       const result = await axios.post(
-        "https://elegant-wright-06721d.netlify.app/api/orders",
+        "https://piizzalian.netlify.app/api/orders",
         data
       );
 

@@ -11,9 +11,7 @@ const Admin = ({ orders, products }) => {
 
   const handleDelete = async (id) => {
     const response = await toast.promise(
-      axios.delete(
-        `https://elegant-wright-06721d.netlify.app/api/products/${id}`
-      ),
+      axios.delete(`https://piizzalian.netlify.app/api/products/${id}`),
       {
         pending: "Deleting...",
         success: "Pizza Deleted 👌",
@@ -31,7 +29,7 @@ const Admin = ({ orders, products }) => {
 
     try {
       const res = await axios.put(
-        `https://elegant-wright-06721d.netlify.app/api/orders/${id}`,
+        `https://piizzalian.netlify.app/api/orders/${id}`,
         {
           status: currentStatus + 1,
         }
@@ -142,11 +140,9 @@ export const getServerSideProps = async (context) => {
   }
 
   const productRes = await axios.get(
-    "https://elegant-wright-06721d.netlify.app/api/products"
+    "https://piizzalian.netlify.app/api/products"
   );
-  const orderRes = await axios.get(
-    "https://elegant-wright-06721d.netlify.app/api/orders"
-  );
+  const orderRes = await axios.get("https://piizzalian.netlify.app/api/orders");
 
   return {
     props: {

@@ -47,10 +47,7 @@ const Add = ({ setClose }) => {
       };
 
       await toast.promise(
-        axios.post(
-          "https://elegant-wright-06721d.netlify.app/api/products",
-          newProduct
-        ),
+        axios.post("https://piizzalian.netlify.app/api/products", newProduct),
         {
           pending: "Processing...",
           success: "Pizza Added 👌",

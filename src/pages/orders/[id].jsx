@@ -117,7 +117,7 @@ const Order = ({ order }) => {
 
 export const getServerSideProps = async ({ params }) => {
   const result = await axios.get(
-    `https://elegant-wright-06721d.netlify.app/api/orders/${params.id}`
+    `https://piizzalian.netlify.app/api/orders/${params.id}`
   );
 
   return {
