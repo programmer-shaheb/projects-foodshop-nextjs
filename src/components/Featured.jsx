@@ -19,9 +19,9 @@ const Featured = () => {
     <div className={classes.container}>
       <Swiper
         className={classes.swiper}
-        navigation={true}
+        navigation={false}
         effect={"fade"}
-        autoplay={{ delay: 3000, disableOnInteraction: false }}
+        autoplay={{ delay: 4000, disableOnInteraction: false }}
         slidesPerView={1}
       >
         <SwiperSlide className={classes.swiperslide}>
@@ -50,7 +50,7 @@ const Featured = () => {
         </SwiperSlide>
         <SwiperSlide className={classes.swiperslide}>
           <Image
-            src="/img/home-slider-3.jpg"
+            src="/img/home-slider-4.jpg"
             alt="logo1"
             priority
             className={classes.landingImage}
@@ -58,7 +58,9 @@ const Featured = () => {
             objectFit="cover"
             objectPosition="center"
           />
-          <div className={classes.text}>Share Your Love For Piizalian!</div>
+          <div className={classes.text}>
+            Free Pizza Delivery For This Month.!
+          </div>
         </SwiperSlide>
       </Swiper>
     </div>

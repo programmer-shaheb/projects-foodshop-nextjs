@@ -2,6 +2,7 @@ import { useState } from "react";
 import styles from "../styles/Add.module.css";
 import axios from "axios";
 import { toast } from "react-toastify";
+import { useRouter } from "next/router";
 
 const Add = ({ setClose }) => {
   const [file, setFile] = useState(null);
@@ -9,7 +10,8 @@ const Add = ({ setClose }) => {
   const [desc, setDesc] = useState(null);
   const [prices, setPrices] = useState([]);
   const [extraOptions, setExtraOptions] = useState([]);
-  const [extra, setExtra] = useState(null);
+  const [extra, setExtra] = useState({});
+  const router = useRouter();
 
   const changePrice = (e, index) => {
     const currentPrices = prices;
@@ -21,9 +23,8 @@ const Add = ({ setClose }) => {
     setExtra({ ...extra, [e.target.name]: e.target.value });
   };
 
-  const handleExtra = (e) => {
+  const handleExtra = () => {
     setExtraOptions((prev) => [...prev, extra]);
-    setExtra(null);
   };
 
   const handleCreate = async () => {
@@ -54,6 +55,7 @@ const Add = ({ setClose }) => {
         }
       );
       setClose(true);
+      router.push("/");
     } catch (err) {
       console.log(err);
     }

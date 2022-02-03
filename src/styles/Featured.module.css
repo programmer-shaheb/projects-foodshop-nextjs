@@ -1,5 +1,5 @@
 .container {
-  height: calc(90vh - 100px);
+  height: 100vh;
   overflow: hidden;
 }
 
@@ -25,15 +25,30 @@
 
 .landingImage {
   z-index: 0;
+  transform: scale(1);
+  animation: bump 15s ease-in-out infinite;
 }
 
 .text {
   z-index: 12;
   font-size: 50px;
-  font-weight: 500;
-  color: rgb(255, 255, 255);
+  font-weight: 600;
   white-space: wrap;
   text-align: center;
+  color: #fff;
+  text-shadow: 0 0 0.125em hsl(0 0% 100% / 1), 0 0 0.45em #ff2079;
+}
+
+@keyframes bump {
+  0% {
+    transform: scale(1, 1);
+  }
+  50% {
+    transform: scale(1.4, 1.4);
+  }
+  100% {
+    transform: scale(1, 1);
+  }
 }
 
 @media screen and (max-width: 480px) {
