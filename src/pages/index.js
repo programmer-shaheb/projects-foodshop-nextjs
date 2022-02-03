@@ -52,7 +52,9 @@ export const getServerSideProps = async (context) => {
     admin = true;
   }
 
-  const result = await axios.get("http://localhost:3000/api/products");
+  const result = await axios.get(
+    "https://elegant-wright-06721d.netlify.app/api/products"
+  );
 
   return {
     props: {

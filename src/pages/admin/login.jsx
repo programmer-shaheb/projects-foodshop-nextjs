@@ -11,10 +11,13 @@ const Login = () => {
 
   const handleClick = async () => {
     try {
-      const res = await axios.post("http://localhost:3000/api/login", {
-        username,
-        password,
-      });
+      const res = await axios.post(
+        "https://elegant-wright-06721d.netlify.app/api/login",
+        {
+          username,
+          password,
+        }
+      );
 
       if (res.status === 200) {
         notify("Admin Logged In!", "success");

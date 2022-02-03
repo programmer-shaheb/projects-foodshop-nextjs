@@ -28,7 +28,10 @@ const Cart = () => {
 
   const createOrder = async (data) => {
     try {
-      const result = await axios.post("http://localhost:3000/api/orders", data);
+      const result = await axios.post(
+        "https://elegant-wright-06721d.netlify.app/api/orders",
+        data
+      );
 
       if (result.status === 201) {
         notify("Order Done ✔️", "success");
